@@ -1,2 +1,2 @@
 # Projection Cinema
- Android application
+ JSF application
