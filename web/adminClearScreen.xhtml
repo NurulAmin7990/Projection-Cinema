@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Projection Cinema Clear Screen</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </h:head>
+    <h:body>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo center"><i class="material-icons">movie</i> Projection Cinema </a>
+            </div>
+        </nav>
+        <h:form class="center">
+            <h5>Clear Screen</h5>
+                <h:outputText value="Screen: " />
+                <div class="input-field grey lighten-5">
+                    <h:selectOneMenu required="true" requiredMessage="Screen selection is empty" class="browser-default" value="#{clearScreen.screenID}">
+                    <f:selectItems value="#{viewScreen.viewScreen()}" var="screen" itemLabel="#{screen.screenNumber}" itemValue="#{screen.screenID}" />
+                </h:selectOneMenu>
+                </div>
+            <h:commandButton class="btn waves-effect waves-light green darken-4" type="submit" value="Clear" action="#{clearScreen.clearScreen()}" />
+            <h:button class="btn waves-effect waves-light orange darken-4" value="Cancel" outcome="adminViewScreen" />
+        </h:form>
+    </h:body>
+</html>

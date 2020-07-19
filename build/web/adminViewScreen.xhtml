@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Projection Cinema View Screens</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </h:head>
+    <h:body>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo center"><i class="material-icons">movie</i> Projection Cinema </a>
+            </div>
+        </nav>
+        <h:form class="col s12 center">
+            <h5>View Screens</h5>
+            <h:dataTable value="#{viewScreen.viewScreen()}" var="screen" >
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{screen.screenID}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Screen number</f:facet>
+                    <h:outputText value="#{screen.screenNumber}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Film ID 1</f:facet>
+                    <h:outputText value="#{screen.filmID1}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Film ID 2</f:facet>
+                    <h:outputText value="#{screen.filmID2}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Film ID 3</f:facet>
+                    <h:outputText value="#{screen.filmID3}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Film 1 Start</f:facet>
+                    <h:outputText value="#{screen.film1Start}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Film 2 Start</f:facet>
+                    <h:outputText value="#{screen.film2Start}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Film 3 Start</f:facet>
+                    <h:outputText value="#{screen.film3Start}" />
+                </h:column>
+            </h:dataTable>
+            <h:button class="btn waves-effect waves-light green darken-4 col s2" value="Update screen" outcome="adminUpdateScreen" />
+            <h:button class="btn waves-effect waves-light green darken-4 col s2" value="Clear screen" outcome="adminClearScreen" />
+            <h:button class="btn waves-effect waves-light orange darken-4 col s2" value="Admin panel" outcome="adminPanel" />
+        </h:form>
+    </h:body>
+</html>

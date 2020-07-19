@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Projection Cinema Update Screen</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </h:head>
+    <h:body>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo center"><i class="material-icons">movie</i> Projection Cinema </a>
+            </div>
+        </nav>
+        <h:form class="col s12 center">
+            <h5>Update Screen</h5>
+            <div class="row">
+                <div class="input-field col s6 grey lighten-5">
+                <h:outputText value="Screen ID: " />
+                <h:selectOneMenu required="true" requiredMessage="Screen selection is empty" class="browser-default" value="#{updateScreen.screenID}">
+                    <f:selectItems value="#{viewScreen.viewScreen()}" var="screen" itemLabel="#{screen.screenID}" itemValue="#{screen.screenID}" />
+                </h:selectOneMenu>
+                </div>
+                <div class="input-field col s6 grey lighten-5">
+                <h:outputText value="Screen number: " />
+                <h:inputText required="true" requiredMessage="Screen number is empty" value="#{updateScreen.screenNumber}" a:placeholder="1"/>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Film 1: " />
+                <h:selectOneMenu required="true" requiredMessage="Film 1 selection is empty" class="browser-default" value="#{updateScreen.filmID1}">
+                    <f:selectItems value="#{viewFilm.viewFilm()}" var="film" itemLabel="#{film.name}" itemValue="#{film.filmID}" />
+                </h:selectOneMenu>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Film 2: " />
+                <h:selectOneMenu required="true" requiredMessage="Film 2 selection is empty" class="browser-default" value="#{updateScreen.filmID2}">
+                    <f:selectItems value="#{viewFilm.viewFilm()}" var="film" itemLabel="#{film.name}" itemValue="#{film.filmID}" />
+                </h:selectOneMenu>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Film 3: " />
+                <h:selectOneMenu required="true" requiredMessage="Film 3 selection is empty" class="browser-default" value="#{updateScreen.filmID3}">
+                    <f:selectItems value="#{viewFilm.viewFilm()}" var="film" itemLabel="#{film.name}" itemValue="#{film.filmID}" />
+                </h:selectOneMenu>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Film 1 start: " />
+                <h:inputText required="true" requiredMessage="Film 1 start is empty" value="#{updateScreen.film1Start}" a:placeholder="HH:MM:SS"/>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Film 2 start: " />
+                <h:inputText required="true" requiredMessage="Film 2 start is empty" value="#{updateScreen.film2Start}" a:placeholder="HH:MM:SS"/>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Film 3 start: " />
+                <h:inputText required="true" requiredMessage="Film 3 start is empty" value="#{updateScreen.film3Start}" a:placeholder="HH:MM:SS" />
+                </div>
+            </div>
+            <h:commandButton class="btn waves-effect waves-light green darken-4" type="submit" value="Update" action="#{updateScreen.updateScreen()}" />
+            <h:button class="btn waves-effect waves-light orange darken-4" value="Cancel" outcome="adminViewScreen" />
+        </h:form>
+    </h:body>
+</html>

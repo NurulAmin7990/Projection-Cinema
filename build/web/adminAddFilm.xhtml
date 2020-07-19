@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Projection Cinema Add Film</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </h:head>
+    <h:body>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo center"><i class="material-icons">movie</i> Projection Cinema </a>
+            </div>
+        </nav>
+        <h:form class="col s12 center">
+            <h5>Add Film</h5>
+            <div class="row">
+                <div class="input-field col s4 grey lighten-5">
+                    <h:outputText value="Name: " />
+                    <h:inputText required="true" requiredMessage="Name is empty" value="#{addFilm.name}" a:placeholder="Example"/>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Rating: " />
+                <h:inputText required="true" requiredMessage="Rating is empty" value="#{addFilm.rating}" a:placeholder="5.5"/>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Release date: " />
+                <h:inputText required="true" requiredMessage="Release date is empty" value="#{addFilm.releaseDate}" a:placeholder="Year/Month/Day" />
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Duration:  " />
+                <h:inputText required="true" requiredMessage="Duration is empty" value="#{addFilm.duration}" a:placeholder="HH:MM:SS"/>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Genre: " />
+                <h:inputText required="true" requiredMessage="Genre is empty" value="#{addFilm.genre}" a:placeholder="Example, Example, Example"/>
+                </div>
+                <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Description: " />
+                <h:inputText required="true" requiredMessage="Description is empty" value="#{addFilm.description}" a:placeholder="Example description" />
+                </div>
+            </div>
+            <h:commandButton class="btn waves-effect waves-light green darken-4" type="submit" value="Add" action="#{addFilm.addFilm()}" />
+            <h:button class="btn waves-effect waves-light orange darken-4" value="Cancel" outcome="adminViewFilm" />
+        </h:form>
+    </h:body>
+</html>

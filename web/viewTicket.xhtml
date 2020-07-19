@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Projection Cinema View Ticket</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </h:head>
+    <h:body>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo center"><i class="material-icons">movie</i> Projection Cinema </a>
+            </div>
+        </nav>
+        <h5 class="center">All Tickets</h5>
+            <h:dataTable value="#{viewTicket.viewTicket()}" var="ticket" >
+                <h:column>
+                    <f:facet name="header">Cinema ID</f:facet>
+                    <h:outputText value="#{ticket.cinemaID}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Film ID</f:facet>
+                    <h:outputText value="#{ticket.filmID}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Booking date</f:facet>
+                    <h:outputText value="#{ticket.bookingDate}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                    <h:outputText value="#{ticket.quantity}" />
+                </h:column>
+            </h:dataTable>
+            <h:button class="btn waves-effect waves-light orange darken-4" value="Back" outcome="customerPanel" />
+    </h:body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Projection Cinema Book Ticket</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </h:head>
+    <h:body>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo center"><i class="material-icons">movie</i> Projection Cinema </a>
+            </div>
+        </nav>
+        <h:form class="col s12 center">
+            <h5>Book Ticket</h5>
+            <div class="row">
+                 <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Customer ID: " />
+                <h:selectOneMenu required="true" requiredMessage="Customer maybe not logged in" class="browser-default" value="#{bookTicket.customerID}">
+                    <f:selectItem itemLabel="Current user" itemValue="#{loginCustomer.currentCustomer}" />
+                </h:selectOneMenu>
+                 </div>
+                 <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Cinema: " />
+                <h:selectOneMenu required="true" requiredMessage="Cinema selection is empty" class="browser-default" value="#{bookTicket.cinemaID}">
+                    <f:selectItems value="#{viewCinema.viewCinema()}" var="cinema" itemLabel="#{cinema.name}" itemValue="#{cinema.cinemaID}" />
+                </h:selectOneMenu>
+                 </div>
+                 <div class="input-field col s4 grey lighten-5">
+                <h:outputText value="Film: " />
+                <h:selectOneMenu required="true" requiredMessage="Film selection is empty" class="browser-default" value="#{bookTicket.filmID}">
+                    <f:selectItems value="#{viewFilm.viewFilm()}" var="film" itemLabel="#{film.name}" itemValue="#{film.filmID}" />
+                </h:selectOneMenu>
+                 </div>
+                 <div class="input-field col s6 grey lighten-5">
+                <h:outputText value="Booking date:  " />
+                <h:inputText required="true" requiredMessage="Booking date is empty" value="#{bookTicket.bookingDate}" a:placeholder="YEAR-MONTH-DAY"/>
+                 </div>
+                 <div class="input-field col s6 grey lighten-5">
+                <h:outputText value="Quantity:  " />
+                <h:inputText required="true" requiredMessage="Quantity is empty" value="#{bookTicket.quantity}" a:placeholder="1"/>
+                 </div>
+            </div>
+            <h:commandButton class="btn waves-effect waves-light green darken-4" type="submit" value="Book" action="#{bookTicket.bookTicket()}" />
+            <h:button class="btn waves-effect waves-light orange darken-4" value="Cancel" outcome="customerPanel"/>
+        </h:form>
+    </h:body>
+</html>

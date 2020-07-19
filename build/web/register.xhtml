@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Projection Cinema Register</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </h:head>
+    <h:body>
+        <nav class="light-blue darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo center"><i class="material-icons">movie</i> Projection Cinema </a>
+            </div>
+        </nav>
+        <h:form class="col s12 center">
+            <h5>Register</h5>
+            <div class="row">
+                <div class="input-field col s6 grey lighten-5">
+                    <h:outputText value="First name: " />
+                    <h:inputText required="true" requiredMessage="First name is empty" value="#{registerCustomer.firstName}" a:placeholder="Bob" />
+                </div>
+                <div class="input-field col s6 grey lighten-5">
+                    <h:outputText value="Last name: " />
+                    <h:inputText required="true" requiredMessage="Last name is empty" value="#{registerCustomer.lastName}" a:placeholder="Smith" />
+                </div>
+                <div class="input-field col s6 grey lighten-5">
+                    <h:outputText value="Date of birth: " />
+                    <h:inputText required="true" requiredMessage="Date of birth is empty" value="#{registerCustomer.dateOfBirth}" a:placeholder="Year-Month-Day"/>
+                </div>
+                <div class="input-field col s6 grey lighten-5">
+                    <h:outputText value="Email:  " />
+                    <h:inputText required="true" requiredMessage="Email is empty" value="#{registerCustomer.email}" a:placeholder="Example@Example.com" />
+                </div>
+                <div class="input-field col s6 grey lighten-5">
+                    <h:outputText value="Contact number: " />
+                    <h:inputText required="true" requiredMessage="Contact number is empty" value="#{registerCustomer.contactNumber}" a:placeholder="01234 567 890" />
+                </div>
+                <div class="input-field col s6 grey lighten-5">
+                    <h:outputText value="Password: " />
+                    <h:inputSecret required="true" requiredMessage="Password is empty" value="#{registerCustomer.password}"/>
+                </div>
+            </div>
+            <h:commandButton class="btn waves-effect waves-light green darken-4" type="submit" value="Register" action="#{registerCustomer.registerCustomer()}" />
+            <h:button class="btn waves-effect waves-light orange darken-4" value="Login" outcome="login" />
+        </h:form>
+    </h:body>
+</html>
